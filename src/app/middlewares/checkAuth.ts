@@ -21,6 +21,8 @@ export const checkAuth = (...authRoles: string[]) => async (req: Request, res: R
             throw new AppError(httpStatus.UNAUTHORIZED, "You are not permitted to view this")
         }
 
+        req.user = verifiedToken
+
         next()
 
     } catch (error) {
