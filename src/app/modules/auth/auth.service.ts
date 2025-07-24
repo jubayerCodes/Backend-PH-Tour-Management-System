@@ -29,7 +29,6 @@ const credentialsLogin = async (payload: Pick<IUser, "email" | "password">) => {
         role: existingUser.role
     }
 
-    console.log(jwtPayload);
     const accessToken = generateToken(jwtPayload, envVars.JWT_ACCESS_SECRET, envVars.JWT_EXPIRES_IN)
 
     return { accessToken }
